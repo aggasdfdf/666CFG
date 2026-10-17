@@ -1,154 +1,268 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>666 CFG — FiveM Tools</title>
 <meta name="theme-color" content="#080808">
+<title>666 CFG — Herramientas</title>
 <style>
+:root{--bg:#080808;--panel:rgba(18,18,18,.78);--line:rgba(255,255,255,.13);--muted:#929292;--white:#f5f5f5}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
- margin:0;background:#080808;color:#f5f5f5;
- font-family:Arial,Helvetica,sans-serif;
-}
-body:before{
- content:"666";position:fixed;z-index:-1;
- top:12%;left:50%;transform:translateX(-50%) rotate(-8deg);
- font-size:clamp(220px,48vw,650px);font-weight:1000;
- letter-spacing:-.1em;color:#fff;opacity:.025;
- white-space:nowrap;pointer-events:none;
-}
-nav{
- height:85px;padding:0 7%;display:flex;
- align-items:center;justify-content:space-between;
- border-bottom:1px solid #ffffff12;
-}
-.logo{font-size:22px;font-weight:900;letter-spacing:-1px}
-.logo span{color:#858585}
-.navlink{color:#aaa;font-size:13px;text-decoration:none}
-.hero{
- max-width:1150px;margin:auto;padding:105px 25px 90px;
-}
-.tag{font-size:10px;letter-spacing:3px;color:#777;font-weight:bold}
-h1{
- font-size:clamp(55px,11vw,120px);line-height:.95;
- letter-spacing:-.075em;margin:24px 0;
-}
-h1 span{color:#777}
-.intro{color:#858585;line-height:1.8;max-width:490px;font-size:14px}
-.btn{
- display:inline-block;margin-top:28px;padding:19px 30px;
- background:#f5f5f5;color:#080808;text-decoration:none;
- font-size:11px;font-weight:900;letter-spacing:1.2px;
- transition:.2s;
-}
-.btn:hover{background:#bbb;transform:translateY(-2px)}
-main{max-width:1150px;margin:auto;padding:0 25px 100px}
-.sectionhead{display:flex;justify-content:space-between;align-items:end}
-h2{font-size:32px;letter-spacing:-1.5px;margin:14px 0 32px}
-.count{font-size:10px;color:#666;letter-spacing:2px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
-.card{
- min-height:185px;padding:27px;
- border:1px solid #ffffff17;background:#ffffff04;
- text-decoration:none;color:white;display:flex;
- flex-direction:column;transition:.25s;
-}
-.card:hover{background:#ffffff0b;border-color:#777;transform:translateY(-3px)}
-.number{font-size:10px;letter-spacing:2px;color:#666}
-.card h3{font-size:23px;letter-spacing:-.7px;margin:24px 0 10px}
-.card p{font-size:12px;color:#777;line-height:1.7;margin:0}
-.arrow{margin-top:auto;padding-top:20px;text-align:right;color:#aaa}
-.join{
- margin-top:70px;padding:45px 25px;border:1px solid #ffffff17;
- text-align:center;background:#ffffff03;
-}
-.join h2{margin:15px 0}
-.join p{color:#888;font-size:13px}
-footer{
- border-top:1px solid #ffffff12;padding:27px 7%;
- display:flex;justify-content:space-between;gap:15px;
- color:#666;font-size:11px;flex-wrap:wrap;
-}
-@media(max-width:650px){
- .grid{grid-template-columns:1fr}
- .hero{padding-top:75px}
- .card{min-height:165px}
- nav{padding:0 22px}
-}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;min-height:100vh}
+body:before{content:"666";position:fixed;z-index:-1;pointer-events:none;left:50%;top:48%;transform:translate(-50%,-50%) rotate(-8deg);font-size:clamp(18rem,48vw,58rem);font-weight:1000;letter-spacing:-.12em;line-height:.8;color:rgba(255,255,255,.025);filter:blur(3px);white-space:nowrap}
+header{height:72px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(22px,5.8vw,96px);gap:22px;position:sticky;top:0;background:rgba(8,8,8,.88);backdrop-filter:blur(14px);z-index:10}
+.brand{font-size:21px;font-weight:950;font-style:italic;letter-spacing:-1px;color:#fff;text-decoration:none;white-space:nowrap}
+nav{display:flex;gap:clamp(14px,3vw,48px);align-items:center}
+nav a,.join{font-size:10px;letter-spacing:1.8px;font-weight:800;text-decoration:none;color:#9a9a9a;transition:.2s}
+nav a:hover,nav a.active{color:#fff}
+.join{color:#fff;border:1px solid var(--line);padding:12px 16px;border-radius:3px}
+main{width:min(1450px,88%);margin:0 auto}
+.hero{padding:clamp(90px,13vw,190px) 0 50px}
+.kicker,.eyebrow{font-size:10px;letter-spacing:3px;color:#8b8b8b;font-weight:800}
+h1{font-size:clamp(48px,7vw,88px);line-height:.98;letter-spacing:-.065em;margin:15px 0 0;font-weight:850}
+.sub{color:#929292;max-width:610px;line-height:1.7;font-size:14px;margin-top:22px}
+.section-title{font-size:12px;letter-spacing:2.5px;color:#8e8e8e;font-weight:800;margin:28px 0 18px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{min-height:190px;position:relative;border:1px solid var(--line);background:linear-gradient(135deg,rgba(22,22,22,.74),rgba(8,8,8,.48));padding:30px;border-radius:3px;display:flex;flex-direction:column;align-items:flex-start;text-align:left;color:inherit;text-decoration:none;transition:transform .22s,border-color .22s,background .22s;cursor:pointer}
+.card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.35);background:rgba(24,24,24,.82)}
+.card .num{font-size:10px;letter-spacing:2px;color:#777;font-weight:800}
+.card h2{font-size:clamp(20px,2vw,27px);letter-spacing:-.04em;margin:26px 0 8px}
+.card p{font-size:13px;line-height:1.6;color:#888;margin:0;max-width:470px}
+.arrow{position:absolute;right:28px;bottom:25px;color:#bdbdbd;font-size:23px}
+.soon{cursor:default}
+.tool-page{display:none;padding:72px 0 100px}
+.tool-page.visible{display:block}
+.portal.hidden{display:none}
+.back{background:transparent;color:#aaa;border:0;padding:0;margin-bottom:34px;cursor:pointer;font-size:11px;letter-spacing:1.6px;font-weight:800}
+.back:hover{color:white}
+.tool-heading{font-size:clamp(42px,6vw,68px);letter-spacing:-.06em;margin:0 0 14px}
+.panel{border:1px solid var(--line);border-radius:15px;padding:28px;margin-top:20px;background:linear-gradient(145deg,rgba(19,19,19,.88),rgba(10,10,10,.7))}
+.panel-label{font-size:10px;letter-spacing:2.5px;color:#777;font-weight:900;margin:0 0 18px}
+.drop{min-height:180px;border:1px dashed #383838;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;padding:25px;cursor:pointer;background:rgba(255,255,255,.012)}
+.drop:hover,.drop.drag{border-color:#888;background:rgba(255,255,255,.035)}
+.file-icon{font-size:31px;color:#bbb}
+.drop strong{font-size:14px}
+.drop span{font-size:12px;color:#777}
+input[type=file]{display:none}
+.weapon-row{display:grid;grid-template-columns:1fr 42px 1fr;align-items:center;gap:12px}
+.weapon-box{border:1px solid var(--line);border-radius:12px;padding:20px;background:rgba(255,255,255,.025);min-height:86px}
+.weapon-box small{display:block;font-size:9px;letter-spacing:2px;color:#777;font-weight:900;margin-bottom:10px}
+.weapon-box strong{font-size:15px}
+select{width:100%;background:#171717;color:#eee;border:1px solid #333;border-radius:8px;padding:12px;font:inherit;font-size:13px}
+.action{width:100%;padding:16px;margin-top:12px;border:1px solid #303030;background:#171717;color:#aaa;border-radius:8px;font-size:11px;font-weight:900;letter-spacing:1.5px;cursor:pointer}
+.action:hover{border-color:#777;color:white}
+.action.primary{background:#f0f0f0;color:#111;border-color:#f0f0f0}
+.note{font-size:12px;line-height:1.65;color:#777;margin:16px 0 0}
+.status{font-size:12px;color:#c6c6c6;margin-top:12px;overflow-wrap:anywhere}
+footer{border-top:1px solid rgba(255,255,255,.1);margin-top:100px;padding:25px clamp(22px,5.8vw,96px);display:flex;justify-content:space-between;gap:20px;color:#666;font-size:10px;letter-spacing:1.3px}
+footer a{color:#aaa;text-decoration:none}
+@media(max-width:700px){header{height:auto;min-height:68px;flex-wrap:wrap;padding:17px 20px}nav{order:3;width:100%;justify-content:space-between;gap:10px;padding-top:8px}nav a{font-size:9px;letter-spacing:1px}.join{font-size:9px;padding:10px}main{width:calc(100% - 40px)}.hero{padding-top:88px}.cards{grid-template-columns:1fr}.card{min-height:170px;padding:24px}.panel{padding:18px}.weapon-row{grid-template-columns:1fr}.weapon-row>span{text-align:center;transform:rotate(90deg)}footer{margin-top:60px;flex-direction:column}}
 </style>
 </head>
 <body>
-<nav>
- <a class="logo" href="#">666 <span>CFG</span></a>
- <a class="navlink" href="#herramientas">FIVEM TOOLS ↘</a>
+<header>
+<a class="brand" href="#" id="brandHome">666 CFG</a>
+<nav aria-label="Navegación">
+<a href="#" class="active" id="navHome">INICIO</a>
+<a href="#herramientas" id="navTools">HERRAMIENTAS</a>
+<a href="#comunidad" id="navCommunity">COMUNIDAD</a>
 </nav>
-
-<header class="hero">
- <div class="tag">666 CFG / FIVEM COMMUNITY</div>
- <h1>TU JUEGO.<br><span>TU ESTILO.</span></h1>
- <p class="intro">
- Bienvenido a 666 CFG. Descubre nuestras herramientas,
- configuraciones y novedades para la comunidad FiveM.
- Todo en un mismo lugar.
- </p>
- <a class="btn" href="https://discord.gg/7gsEkkzjmn"
- target="_blank" rel="noopener noreferrer">
-  ◈ &nbsp; ÚNETE A NUESTRO DISCORD ↗
- </a>
+<a class="join" href="https://discord.gg/7gsEkkzjmn" target="_blank" rel="noopener">ÚNETE AL DISCORD ↗</a>
 </header>
+<main>
+<section class="portal" id="portal">
+<div class="hero">
+<div class="kicker">666 CFG PORTAL</div>
+<h1>Herramientas</h1>
+<p class="sub">Herramientas y recursos para tu experiencia en GTA V / FiveM. Todo en un mismo sitio.</p>
+</div>
+<div id="herramientas" class="section-title">SELECCIONA UNA HERRAMIENTA</div>
+<div class="cards">
+<button class="card" id="openConverter">
+<span class="num">01 / TOOL</span><h2>Weapon Converter</h2>
+<p>Inspecciona archivos RPF de GTA V / FiveM desde tu navegador.</p><span class="arrow">→</span>
+</button>
+<button class="card" id="openSounds">
+<span class="num">02 / TOOL</span><h2>Sounds Tool</h2>
+<p>Herramientas para sonidos, pasos y headshots.</p><span class="arrow">→</span>
+</button>
+<div class="card soon">
+<span class="num">03 / SOON</span><h2>Más herramientas</h2>
+<p>Nuevas herramientas próximamente.</p><span class="arrow">→</span>
+</div>
+</div>
+<div id="comunidad" class="panel" style="margin-top:24px">
+<div class="panel-label">ÚNETE A LA COMUNIDAD</div>
+<h2 style="margin:0 0 8px;font-size:24px;letter-spacing:-.04em">666 CFG Discord</h2>
+<p class="sub" style="margin:0 0 20px">Configuraciones, mods y novedades de la comunidad.</p>
+<a class="join" href="https://discord.gg/7gsEkkzjmn" target="_blank" rel="noopener" style="display:inline-block">ENTRAR AL DISCORD ↗</a>
+</div>
+</section>
 
-<main id="herramientas">
- <div class="sectionhead">
-  <div>
-   <div class="tag">666 CFG PORTAL</div>
-   <h2>Herramientas</h2>
-  </div>
-  <div class="count">01 — 04</div>
- </div>
+<section class="tool-page" id="converter">
+<button class="back" id="backConverter">← VOLVER A HERRAMIENTAS</button>
+<div class="kicker">666 CFG / TOOL 01</div>
+<h1 class="tool-heading">Weapon Converter</h1>
+<p class="sub">Inspecciona y convierte archivos RPF de armas de GTA V / FiveM.</p>
+<div class="panel">
+<div class="panel-label">PASO 1 — SUBIR ARCHIVO</div>
+<label class="drop" id="dropZone" for="rpfFile">
+<div class="file-icon">▤</div><strong id="fileLabel">Haz clic o arrastra tu archivo .rpf aquí</strong>
+<span>El archivo se selecciona en tu dispositivo.</span>
+</label>
+<input type="file" id="rpfFile" accept=".rpf">
+<div class="status" id="fileStatus" aria-live="polite"></div>
+<div id="analysisResult" style="display:none;margin-top:14px">
+<div class="weapon-box" style="margin-bottom:12px"><small>DETECCIÓN AUTOMÁTICA</small><strong>🔎 Weapon detected: <span id="detectedWeapon">UNKNOWN</span></strong></div>
+<div class="weapon-box" style="margin-bottom:12px;background:rgba(0,0,0,.28)">
+<div style="display:flex;gap:22px;flex-wrap:wrap;font-size:12px;line-height:1.9;color:#999">
+<span>Archivo: <strong id="rpfFormat" style="color:#eee">RPF</strong></span>
+<span>Tamaño: <strong id="rpfSize" style="color:#eee">—</strong></span>
+<span>Detección: <strong id="detectMethod" style="color:#eee">Por nombre</strong></span>
+</div>
+<p class="note" style="margin-bottom:0">La etiqueta se estima a partir del nombre del archivo; no confirma el arma real ni analiza el contenido interno.</p>
+</div>
+<div class="panel-label" style="margin-top:18px">ARCHIVOS DENTRO DEL RPF</div>
+<div class="weapon-box"><span style="font-size:12px;color:#888">El contenido interno todavía no se ha analizado.</span></div>
+</div>
+</div>
+<div class="panel">
+<div class="panel-label">PASO 2 — SELECCIONAR ARMA OBJETIVO</div>
+<div class="weapon-row">
+<div class="weapon-box"><small>ARMA ACTUAL</small><strong id="currentWeapon">Unknown</strong></div>
+<span style="color:#777;text-align:center">→</span>
+<div class="weapon-box"><small>CONVERTIR A</small>
+<select id="targetWeapon">
+<option value="">Seleccionar arma...</option>
+<option>Pistol</option>
+<option>Combat Pistol</option>
+<option>Heavy Pistol</option>
+<option>SMG</option>
+<option>Assault Rifle</option>
+<option>Carbine Rifle</option>
+<option>Special Carbine</option>
+<option>Pump Shotgun</option>
+<option>Sniper Rifle</option>
+</select>
+</div>
+</div>
+</div>
+<div class="panel">
+<div class="panel-label">PASO 3 — CONVERTIR</div>
+<button class="action primary" id="convertBtn">CONVERTIR ARMA</button>
+<button class="action" id="downloadBtn" disabled>DESCARGAR ARMA CONVERTIDA</button>
+<p class="note">Importante: esta página todavía no convierte archivos RPF. No descargues un resultado ficticio: el botón solo valida la selección y te informa de que falta el motor de conversión.</p>
+<div class="status" id="convertStatus" aria-live="polite"></div>
+</div>
+</section>
 
- <div class="grid">
-  <a class="card" href="https://discord.gg/7gsEkkzjmn">
-   <div class="number">01 / CFG</div>
-   <h3>Configuraciones</h3>
-   <p>Descubre configuraciones para personalizar tu experiencia.</p>
-   <div class="arrow">↗</div>
-  </a>
-  <a class="card" href="https://discord.gg/7gsEkkzjmn">
-   <div class="number">02 / AUDIO</div>
-   <h3>Sonidos de armas</h3>
-   <p>Explora sonidos y opciones de audio disponibles en la comunidad.</p>
-   <div class="arrow">↗</div>
-  </a>
-  <a class="card" href="https://discord.gg/7gsEkkzjmn">
-   <div class="number">03 / CUSTOM</div>
-   <h3>Skins & Presets</h3>
-   <p>Personaliza tu experiencia con contenido de la comunidad.</p>
-   <div class="arrow">↗</div>
-  </a>
-  <a class="card" href="https://discord.gg/7gsEkkzjmn">
-   <div class="number">04 / COMMUNITY</div>
-   <h3>Comunidad</h3>
-   <p>Accede a las novedades y ponte en contacto con nuestro equipo.</p>
-   <div class="arrow">↗</div>
-  </a>
- </div>
-
- <section class="join">
-  <div class="tag">¿TE UNES?</div>
-  <h2>Forma parte de 666 CFG.</h2>
-  <p>Entra al Discord y descubre todo lo que tenemos preparado.</p>
-  <a class="btn" href="https://discord.gg/7gsEkkzjmn"
-  target="_blank" rel="noopener noreferrer">ACCEDER AL DISCORD ↗</a>
- </section>
+<section class="tool-page" id="sounds">
+<button class="back" id="backSounds">← VOLVER A HERRAMIENTAS</button>
+<div class="kicker">666 CFG / TOOL 02</div>
+<h1 class="tool-heading">Sounds Tool</h1>
+<p class="sub">Zona para organizar y preparar herramientas de sonidos de FiveM.</p>
+<div class="panel">
+<div class="panel-label">SONIDOS / ARCHIVOS DE AUDIO</div>
+<label class="drop" for="soundFile">
+<div class="file-icon">♫</div><strong id="soundLabel">Selecciona un archivo de audio</strong><span>Formatos habituales: WAV, MP3 y OGG.</span>
+</label>
+<input type="file" id="soundFile" accept="audio/*">
+<div class="status" id="soundStatus" aria-live="polite"></div>
+<p class="note">Esta sección permite seleccionar un archivo local, pero aún no incluye herramientas de edición o conversión de audio.</p>
+</div>
+</section>
 </main>
+<footer><span>© 2026 666 CFG — COMMUNITY TOOLS</span><a href="https://discord.gg/7gsEkkzjmn" target="_blank" rel="noopener">DISCORD ↗</a></footer>
+<script>
+const portal=document.getElementById('portal'), converter=document.getElementById('converter'), sounds=document.getElementById('sounds');
+function showPage(which){
+portal.classList.toggle('hidden',which!=='home');
+converter.classList.toggle('visible',which==='converter');
+sounds.classList.toggle('visible',which==='sounds');
+window.scrollTo({top:0,behavior:'smooth'});
+document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+document.getElementById(which==='home'?'navHome':'navTools').classList.add('active');
+}
+document.getElementById('brandHome').onclick=e=>{e.preventDefault();showPage('home')};
+document.getElementById('navHome').onclick=e=>{e.preventDefault();showPage('home')};
+document.getElementById('navTools').onclick=e=>{e.preventDefault();showPage('home');document.getElementById('herramientas').scrollIntoView({behavior:'smooth'})};
+document.getElementById('openConverter').onclick=()=>showPage('converter');
+document.getElementById('openSounds').onclick=()=>showPage('sounds');
+document.getElementById('backConverter').onclick=()=>showPage('home');
+document.getElementById('backSounds').onclick=()=>showPage('home');
 
-<footer>
- <span>© 2026 666 CFG</span>
- <span>FIVEM COMMUNITY · TODOS LOS DERECHOS RESERVADOS</span>
-</footer>
+const fileInput=document.getElementById('rpfFile');
+const drop=document.getElementById('dropZone');
+
+function detectWeaponFromName(name){
+const n=name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+if(/(^|[^a-z0-9])(9mm|9 mm|impero)([^a-z0-9]|$)/i.test(n))return '9MM';
+if(n.includes('combat pistol')||n.includes('combat_pistol'))return 'COMBAT PISTOL';
+if(n.includes('heavy pistol')||n.includes('heavy_pistol'))return 'HEAVY PISTOL';
+if(n.includes('pistol'))return 'PISTOL';
+if(n.includes('smg'))return 'SMG';
+if(n.includes('carbine'))return 'CARBINE RIFLE';
+if(n.includes('assault rifle')||n.includes('assault_rifle'))return 'ASSAULT RIFLE';
+if(n.includes('shotgun'))return 'SHOTGUN';
+if(n.includes('sniper'))return 'SNIPER RIFLE';
+return 'UNKNOWN';
+}
+
+function prettySize(bytes){
+if(bytes>=1024*1024)return (bytes/(1024*1024)).toFixed(2)+' MB';
+if(bytes>=1024)return (bytes/1024).toFixed(2)+' KB';
+return bytes+' B';
+}
+
+function setRpf(file){
+if(!file)return;
+const weapon=detectWeaponFromName(file.name);
+document.getElementById('fileLabel').textContent=file.name;
+document.getElementById('fileStatus').textContent='Archivo seleccionado: '+file.name+' ('+prettySize(file.size)+').';
+document.getElementById('currentWeapon').textContent=weapon;
+document.getElementById('detectedWeapon').textContent=weapon;
+document.getElementById('rpfFormat').textContent=file.name.toLowerCase().endsWith('.rpf')?'RPF':'Formato no reconocido';
+document.getElementById('rpfSize').textContent=prettySize(file.size);
+document.getElementById('detectMethod').textContent=weapon==='UNKNOWN'?'No detectada por nombre':'Por nombre del archivo';
+document.getElementById('analysisResult').style.display='block';
+document.getElementById('convertStatus').textContent='';
+document.getElementById('downloadBtn').disabled=true;
+}
+
+fileInput.addEventListener('change',()=>setRpf(fileInput.files[0]));
+drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('drag')});
+drop.addEventListener('dragleave',()=>drop.classList.remove('drag'));
+drop.addEventListener('drop',e=>{
+e.preventDefault();
+drop.classList.remove('drag');
+const f=e.dataTransfer.files[0];
+if(!f)return;
+try{fileInput.files=e.dataTransfer.files}catch(_){}
+setRpf(f);
+});
+
+document.getElementById('convertBtn').onclick=()=>{
+const f=fileInput.files[0];
+const target=document.getElementById('targetWeapon').value;
+const s=document.getElementById('convertStatus');
+document.getElementById('downloadBtn').disabled=true;
+if(!f){s.textContent='Primero selecciona un archivo .rpf.';return}
+if(!f.name.toLowerCase().endsWith('.rpf')){s.textContent='El archivo seleccionado no termina en .rpf.';return}
+if(!target){s.textContent='Selecciona el formato de destino.';return}
+s.textContent='No se ha generado ningún archivo: esta versión aún no incluye un conversor real. El nombre del archivo no permite verificar qué arma contiene.';
+};
+
+const soundFile=document.getElementById('soundFile');
+soundFile.addEventListener('change',()=>{
+const f=soundFile.files[0];
+if(f){
+document.getElementById('soundLabel').textContent=f.name;
+document.getElementById('soundStatus').textContent='Archivo seleccionado: '+f.name;
+}
+});
+</script>
 </body>
 </html>
 
