@@ -1,1 +1,154 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>666 CFG — FiveM Tools</title>
+<meta name="theme-color" content="#080808">
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;background:#080808;color:#f5f5f5;
+ font-family:Arial,Helvetica,sans-serif;
+}
+body:before{
+ content:"666";position:fixed;z-index:-1;
+ top:12%;left:50%;transform:translateX(-50%) rotate(-8deg);
+ font-size:clamp(220px,48vw,650px);font-weight:1000;
+ letter-spacing:-.1em;color:#fff;opacity:.025;
+ white-space:nowrap;pointer-events:none;
+}
+nav{
+ height:85px;padding:0 7%;display:flex;
+ align-items:center;justify-content:space-between;
+ border-bottom:1px solid #ffffff12;
+}
+.logo{font-size:22px;font-weight:900;letter-spacing:-1px}
+.logo span{color:#858585}
+.navlink{color:#aaa;font-size:13px;text-decoration:none}
+.hero{
+ max-width:1150px;margin:auto;padding:105px 25px 90px;
+}
+.tag{font-size:10px;letter-spacing:3px;color:#777;font-weight:bold}
+h1{
+ font-size:clamp(55px,11vw,120px);line-height:.95;
+ letter-spacing:-.075em;margin:24px 0;
+}
+h1 span{color:#777}
+.intro{color:#858585;line-height:1.8;max-width:490px;font-size:14px}
+.btn{
+ display:inline-block;margin-top:28px;padding:19px 30px;
+ background:#f5f5f5;color:#080808;text-decoration:none;
+ font-size:11px;font-weight:900;letter-spacing:1.2px;
+ transition:.2s;
+}
+.btn:hover{background:#bbb;transform:translateY(-2px)}
+main{max-width:1150px;margin:auto;padding:0 25px 100px}
+.sectionhead{display:flex;justify-content:space-between;align-items:end}
+h2{font-size:32px;letter-spacing:-1.5px;margin:14px 0 32px}
+.count{font-size:10px;color:#666;letter-spacing:2px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.card{
+ min-height:185px;padding:27px;
+ border:1px solid #ffffff17;background:#ffffff04;
+ text-decoration:none;color:white;display:flex;
+ flex-direction:column;transition:.25s;
+}
+.card:hover{background:#ffffff0b;border-color:#777;transform:translateY(-3px)}
+.number{font-size:10px;letter-spacing:2px;color:#666}
+.card h3{font-size:23px;letter-spacing:-.7px;margin:24px 0 10px}
+.card p{font-size:12px;color:#777;line-height:1.7;margin:0}
+.arrow{margin-top:auto;padding-top:20px;text-align:right;color:#aaa}
+.join{
+ margin-top:70px;padding:45px 25px;border:1px solid #ffffff17;
+ text-align:center;background:#ffffff03;
+}
+.join h2{margin:15px 0}
+.join p{color:#888;font-size:13px}
+footer{
+ border-top:1px solid #ffffff12;padding:27px 7%;
+ display:flex;justify-content:space-between;gap:15px;
+ color:#666;font-size:11px;flex-wrap:wrap;
+}
+@media(max-width:650px){
+ .grid{grid-template-columns:1fr}
+ .hero{padding-top:75px}
+ .card{min-height:165px}
+ nav{padding:0 22px}
+}
+</style>
+</head>
+<body>
+<nav>
+ <a class="logo" href="#">666 <span>CFG</span></a>
+ <a class="navlink" href="#herramientas">FIVEM TOOLS ↘</a>
+</nav>
+
+<header class="hero">
+ <div class="tag">666 CFG / FIVEM COMMUNITY</div>
+ <h1>TU JUEGO.<br><span>TU ESTILO.</span></h1>
+ <p class="intro">
+ Bienvenido a 666 CFG. Descubre nuestras herramientas,
+ configuraciones y novedades para la comunidad FiveM.
+ Todo en un mismo lugar.
+ </p>
+ <a class="btn" href="https://discord.gg/7gsEkkzjmn"
+ target="_blank" rel="noopener noreferrer">
+  ◈ &nbsp; ÚNETE A NUESTRO DISCORD ↗
+ </a>
+</header>
+
+<main id="herramientas">
+ <div class="sectionhead">
+  <div>
+   <div class="tag">666 CFG PORTAL</div>
+   <h2>Herramientas</h2>
+  </div>
+  <div class="count">01 — 04</div>
+ </div>
+
+ <div class="grid">
+  <a class="card" href="https://discord.gg/7gsEkkzjmn">
+   <div class="number">01 / CFG</div>
+   <h3>Configuraciones</h3>
+   <p>Descubre configuraciones para personalizar tu experiencia.</p>
+   <div class="arrow">↗</div>
+  </a>
+  <a class="card" href="https://discord.gg/7gsEkkzjmn">
+   <div class="number">02 / AUDIO</div>
+   <h3>Sonidos de armas</h3>
+   <p>Explora sonidos y opciones de audio disponibles en la comunidad.</p>
+   <div class="arrow">↗</div>
+  </a>
+  <a class="card" href="https://discord.gg/7gsEkkzjmn">
+   <div class="number">03 / CUSTOM</div>
+   <h3>Skins & Presets</h3>
+   <p>Personaliza tu experiencia con contenido de la comunidad.</p>
+   <div class="arrow">↗</div>
+  </a>
+  <a class="card" href="https://discord.gg/7gsEkkzjmn">
+   <div class="number">04 / COMMUNITY</div>
+   <h3>Comunidad</h3>
+   <p>Accede a las novedades y ponte en contacto con nuestro equipo.</p>
+   <div class="arrow">↗</div>
+  </a>
+ </div>
+
+ <section class="join">
+  <div class="tag">¿TE UNES?</div>
+  <h2>Forma parte de 666 CFG.</h2>
+  <p>Entra al Discord y descubre todo lo que tenemos preparado.</p>
+  <a class="btn" href="https://discord.gg/7gsEkkzjmn"
+  target="_blank" rel="noopener noreferrer">ACCEDER AL DISCORD ↗</a>
+ </section>
+</main>
+
+<footer>
+ <span>© 2026 666 CFG</span>
+ <span>FIVEM COMMUNITY · TODOS LOS DERECHOS RESERVADOS</span>
+</footer>
+</body>
+</html>
+
